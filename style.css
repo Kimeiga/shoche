@@ -1,0 +1,80 @@
+html, body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas: 
+    "header"
+    "game";
+
+  overflow-x: hidden;
+
+}
+
+.centered {
+  margin: 0 auto;
+  height: 100%;
+  max-width: 700px;
+  width: 98vw;
+  
+}
+
+header {
+  grid-area: header;
+  background: #444444;
+  color: white;
+  
+  padding: 5px;
+  
+  font-size: 2em;
+  font-weight: 800;
+}
+
+
+.game {
+  grid-area: game;
+  background: black;
+}
+
+.board {
+  margin: 10px auto 0;
+  display: grid;
+  
+  max-height: 700px;
+  height: 98vw;
+  
+  --columns: 6;
+  --rows: 6;
+  
+  grid-template-columns: repeat(var(--columns), 1fr);
+  grid-template-rows: repeat(var(--columns), 1fr);
+
+/*
+  border-right:1px solid cyan;
+    border-bottom:1px solid cyan;
+*/
+  
+}
+
+.square {
+  background: black;
+  
+  border:0px;
+/*
+  border-left:1px solid cyan;
+  border-top:1px solid cyan;
+*/
+}
+
+.square:nth-child(12n+1),
+.square:nth-child(12n+3),
+.square:nth-child(12n+5),
+.square:nth-child(12n-4),
+.square:nth-child(12n),
+.square:nth-child(12n-2) {
+  background-color: #444444;
+}
